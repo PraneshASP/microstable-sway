@@ -1,0 +1,35 @@
+[[package]]
+name = "core"
+source = "path+from-root-F64B6E1A883A7E7B"
+
+[[package]]
+name = "microstable-sway"
+source = "member"
+dependencies = [
+    "pyth_interface",
+    "standards git+https://github.com/FuelLabs/sway-standards?tag=v0.6.1#792639cdf391565e6e6a02482ea8a46d9604a6f5",
+    "std",
+]
+
+[[package]]
+name = "pyth_interface"
+source = "git+https://github.com/pyth-network/pyth-crosschain?tag=pyth-fuel-contract-v0.5.0#8bec01505fafd7b53df7858a6a87ede20dc5e730"
+dependencies = [
+    "standards git+https://github.com/FuelLabs/sway-standards?tag=v0.4.4#a001d3c248595112aae67e5633a06ef9bc0536ae",
+    "std",
+]
+
+[[package]]
+name = "standards"
+source = "git+https://github.com/FuelLabs/sway-standards?tag=v0.4.4#a001d3c248595112aae67e5633a06ef9bc0536ae"
+dependencies = ["std"]
+
+[[package]]
+name = "standards"
+source = "git+https://github.com/FuelLabs/sway-standards?tag=v0.6.1#792639cdf391565e6e6a02482ea8a46d9604a6f5"
+dependencies = ["std"]
+
+[[package]]
+name = "std"
+source = "git+https://github.com/fuellabs/sway?tag=v0.66.4#d7dd104dac4394aa7af56f05b720c975744db853"
+dependencies = ["core"]
