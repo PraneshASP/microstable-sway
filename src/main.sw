@@ -110,7 +110,7 @@ impl Manager for Contract {
     
     #[storage(read, write)]
     fn burn(amount: u64) {
-        require(msg_amount() != amount, "INSUFFICIENT_AMOUNT");
+        require(msg_amount() == amount, "INSUFFICIENT_AMOUNT");
         require(msg_asset_id() == storage.token_asset_id.read(), "INVALID_ASSET");
         let sender = msg_sender().unwrap();
         let current_minted = storage.address_to_minted.get(sender).try_read().unwrap_or(0);
@@ -131,7 +131,7 @@ impl Manager for Contract {
         
         let sender = msg_sender().unwrap();
         
-        require(msg_amount() != current_minted, "INSUFFICIENT_AMOUNT");
+        require(msg_amount() == current_minted, "INSUFFICIENT_AMOUNT");
         require(msg_asset_id() == storage.token_asset_id.read(), "INVALID_ASSET");
         
         burn(DEFAULT_SUB_ID, current_minted);
